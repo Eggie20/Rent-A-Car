@@ -1,0 +1,9 @@
+/* Simple animations and transitions */
+.fade-in{opacity:0;transform:translateY(8px);animation:fadeIn .6s ease forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+
+.card:hover{transform:translateY(-2px);transition:transform .2s ease}
+.btn{transition:filter .2s ease, transform .05s ease}
+
+/* Parallax effect helper */
+.hero-bg{background-attachment:fixed}

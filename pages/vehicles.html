@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Vehicles - The Middle Man</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/css/vehicles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header id="app-header"></header>
+
+  <main>
+    <div class="breadcrumb">
+      <div class="container">
+        <a href="./index.html">Home</a> <span>/</span> <span>Vehicles</span>
+      </div>
+    </div>
+
+    <section class="search-bar-section">
+      <div class="container">
+        <div class="search-bar-edit">
+          <div class="search-criteria">
+            <span><strong>Location:</strong> <span id="criteriaLocation">Manolo Fortich</span></span>
+            <span><strong>Dates:</strong> <span id="criteriaDates">-</span></span>
+            <span><strong>Type:</strong> <span id="criteriaType">All</span></span>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="editSearchBtn">Edit Search</button>
+        </div>
+        <div id="resultsCount" class="results-count">Loading...</div>
+      </div>
+    </section>
+
+    <div class="container vehicles-page">
+      <aside class="filters-sidebar" id="filtersSidebar">
+        <div class="filters-header">
+          <h3>Filters</h3>
+          <button class="btn btn-outline btn-sm" id="clearFiltersBtn">Clear All</button>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <div class="price-inputs">
+            <input type="number" id="priceMin" placeholder="Min" value="1500" />
+            <span>-</span>
+            <input type="number" id="priceMax" placeholder="Max" value="5000" />
+          </div>
+          <input type="range" id="priceSlider" min="1000" max="10000" value="5000" class="slider" />
+          <div class="price-display">₱<span id="priceDisplay">5000</span>/day</div>
+        </div>
+
+        <!-- Vehicle Type -->
+        <div class="filter-group">
+          <h4>Vehicle Type</h4>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="type" value="5-Seater" /> 5-Seater <span class="count">(45)</span></label>
+            <label><input type="checkbox" name="type" value="6-Seater" /> 6-Seater <span class="count">(32)</span></label>
+            <label><input type="checkbox" name="type" value="7-Seater" /> 7-Seater <span class="count">(28)</span></label>
+            <label><input type="checkbox" name="type" value="8-Seater" /> 8-Seater <span class="count">(15)</span></label>
+            <label><input type="checkbox" name="type" value="Van" /> Van <span class="count">(22)</span></label>
+          </div>
+        </div>
+
+        <!-- Transmission -->
+        <div class="filter-group">
+          <h4>Transmission</h4>
+          <div class="radio-group">
+            <label><input type="radio" name="transmission" value="" checked /> Both <span class="count">(142)</span></label>
+            <label><input type="radio" name="transmission" value="Automatic" /> Automatic <span class="count">(95)</span></label>
+            <label><input type="radio" name="transmission" value="Manual" /> Manual <span class="count">(47)</span></label>
+          </div>
+        </div>
+
+        <!-- Seating -->
+        <div class="filter-group">
+          <h4>Seating Capacity</h4>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="seats" value="5" /> 5 seats <span class="count">(45)</span></label>
+            <label><input type="checkbox" name="seats" value="6" /> 6 seats <span class="count">(38)</span></label>
+            <label><input type="checkbox" name="seats" value="7" /> 7 seats <span class="count">(32)</span></label>
+            <label><input type="checkbox" name="seats" value="8" /> 8+ seats <span class="count">(27)</span></label>
+          </div>
+        </div>
+
+        <!-- Fuel Type -->
+        <div class="filter-group">
+          <h4>Fuel Type</h4>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="fuel" value="Gasoline" /> Gasoline <span class="count">(98)</span></label>
+            <label><input type="checkbox" name="fuel" value="Diesel" /> Diesel <span class="count">(44)</span></label>
+          </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="filter-group">
+          <h4>Merchant Rating</h4>
+          <div class="radio-group">
+            <label><input type="radio" name="rating" value="" checked /> All ratings <span class="count">(142)</span></label>
+            <label><input type="radio" name="rating" value="4" /> 4★ & up <span class="count">(128)</span></label>
+            <label><input type="radio" name="rating" value="3" /> 3★ & up <span class="count">(135)</span></label>
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="filter-group">
+          <h4>Features</h4>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="features" value="AC" /> Air Conditioning</label>
+            <label><input type="checkbox" name="features" value="Bluetooth" /> Bluetooth</label>
+            <label><input type="checkbox" name="features" value="GPS" /> GPS Navigation</label>
+            <label><input type="checkbox" name="features" value="Backup Camera" /> Backup Camera</label>
+            <label><input type="checkbox" name="features" value="USB" /> USB Ports</label>
+          </div>
+        </div>
+      </aside>
+
+      <section class="vehicles-main">
+        <div class="vehicles-toolbar">
+          <div class="sort-view">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect">
+              <option value="recommended">Recommended</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="reviews">Most Reviewed</option>
+            </select>
+          </div>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid" title="Grid view">
+              <i class="fa-solid fa-grip"></i>
+            </button>
+            <button class="view-btn" data-view="list" title="List view">
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="vehiclesContainer" class="vehicles-grid"></div>
+
+        <div class="pagination">
+          <button class="btn btn-outline btn-sm" id="prevPage">← Previous</button>
+          <div class="page-info">
+            <span>Page <span id="currentPage">1</span> of <span id="totalPages">5</span></span>
+          </div>
+          <button class="btn btn-outline btn-sm" id="nextPage">Next →</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Edit Search Modal -->
+    <div id="editSearchModal" class="modal" hidden>
+      <div class="modal-content">
+        <button class="modal-close" id="closeEditModal">&times;</button>
+        <h2>Edit Search</h2>
+        <form id="editSearchForm" class="search-widget">
+          <div class="form-row">
+            <div class="field">
+              <label for="editLocation">Location</label>
+              <select id="editLocation" required>
+                <option value="Manolo Fortich">Manolo Fortich</option>
+                <option value="Cagayan de Oro City">Cagayan de Oro City</option>
+                <option value="Bukidnon Province">Bukidnon Province</option>
+                <option value="Entire Mindanao">Entire Mindanao</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="editPickup">Pick-up</label>
+              <input id="editPickup" type="datetime-local" required />
+            </div>
+            <div class="field">
+              <label for="editReturn">Return</label>
+              <input id="editReturn" type="datetime-local" required />
+            </div>
+            <div class="field">
+              <label for="editType">Vehicle Type</label>
+              <select id="editType">
+                <option value="">All Types</option>
+                <option>5-Seater</option>
+                <option>6-Seater</option>
+                <option>7-Seater</option>
+                <option>8-Seater</option>
+                <option>Van</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Update Search</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal" hidden>
+      <div class="modal-content modal-lg">
+        <button class="modal-close" id="closeQuickView">&times;</button>
+        <div id="quickViewContent"></div>
+      </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div id="compareModal" class="modal" hidden>
+      <div class="modal-content modal-lg">
+        <button class="modal-close" id="closeCompare">&times;</button>
+        <h2>Compare Vehicles</h2>
+        <div id="compareContent" class="compare-table"></div>
+      </div>
+    </div>
+
+    <!-- Floating Compare Button -->
+    <div id="compareButton" class="floating-compare" hidden>
+      <button class="btn btn-primary">
+        <i class="fa-solid fa-code-compare"></i>
+        Compare <span id="compareCount">0</span>
+      </button>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/search.js"></script>
+</body>
+</html>

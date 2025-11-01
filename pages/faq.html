@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - The Middle Man</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header id="app-header"></header>
+
+  <main>
+    <section class="section">
+      <div class="page-container">
+        <div class="page-header">
+          <h1>Frequently Asked Questions</h1>
+          <p>Find answers to common questions</p>
+        </div>
+
+        <div class="faq-search">
+          <input type="text" id="faqSearch" placeholder="Search FAQ..." />
+        </div>
+
+        <div class="faq-categories">
+          <button class="faq-category-btn active" data-category="all">All</button>
+          <button class="faq-category-btn" data-category="renters">For Renters</button>
+          <button class="faq-category-btn" data-category="merchants">For Merchants</button>
+          <button class="faq-category-btn" data-category="payment">Payment</button>
+          <button class="faq-category-btn" data-category="booking">Booking</button>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" data-category="renters">
+            <summary>How do I create an account?</summary>
+            <p>Click the "Login" button in the navigation and select "Sign up". Fill in your details and verify your email. You're ready to book!</p>
+          </details>
+
+          <details class="faq-item" data-category="renters">
+            <summary>How do I search for vehicles?</summary>
+            <p>Use the search widget on the home page. Select your location, pick-up and return dates, and vehicle type. Click "Search Available Cars" to see results.</p>
+          </details>
+
+          <details class="faq-item" data-category="booking">
+            <summary>How long does merchant approval take?</summary>
+            <p>Most merchants respond within 30 minutes. You'll receive a notification via email and SMS when your request is approved or rejected.</p>
+          </details>
+
+          <details class="faq-item" data-category="payment">
+            <summary>What payment methods do you accept?</summary>
+            <p>We currently accept GCash payments. Payment is processed securely after merchant approval of your booking request.</p>
+          </details>
+
+          <details class="faq-item" data-category="payment">
+            <summary>Is my payment information secure?</summary>
+            <p>Yes! We use industry-standard encryption and partner with trusted payment providers to ensure your information is secure.</p>
+          </details>
+
+          <details class="faq-item" data-category="booking">
+            <summary>Can I modify my booking after submission?</summary>
+            <p>You can modify pending bookings by contacting the merchant directly. Once approved, modifications may incur additional fees.</p>
+          </details>
+
+          <details class="faq-item" data-category="booking">
+            <summary>What is your cancellation policy?</summary>
+            <p>Pending bookings can be cancelled anytime. Approved bookings have a 24-hour cancellation window with full refund. Late cancellations may have fees.</p>
+          </details>
+
+          <details class="faq-item" data-category="renters">
+            <summary>What documents do I need to provide?</summary>
+            <p>You'll need a valid ID and driver's license. These are verified during the booking process to ensure safety for both renters and merchants.</p>
+          </details>
+
+          <details class="faq-item" data-category="merchants">
+            <summary>How do I register as a merchant?</summary>
+            <p>Click "For Merchants" in the navigation, then "Register". Fill in your business details and upload required documents. We'll verify within 2-3 business days.</p>
+          </details>
+
+          <details class="faq-item" data-category="merchants">
+            <summary>What documents do I need to register?</summary>
+            <p>You'll need: Business Permit, DTI/SEC Registration, Owner's Valid ID, and Vehicle OR/CR copies. Insurance documents are also recommended.</p>
+          </details>
+
+          <details class="faq-item" data-category="merchants">
+            <summary>How do I add vehicles to my fleet?</summary>
+            <p>Log in to your merchant dashboard and click "Add New Vehicle". Fill in vehicle details, upload photos, set pricing, and publish. It's that simple!</p>
+          </details>
+
+          <details class="faq-item" data-category="merchants">
+            <summary>What are the commission fees?</summary>
+            <p>The Middle Man charges a 10% commission on each booking. This covers platform maintenance, payment processing, and customer support.</p>
+          </details>
+
+          <details class="faq-item" data-category="merchants">
+            <summary>How do I receive payments?</summary>
+            <p>Payments are transferred to your registered GCash account within 24-48 hours after the rental is completed and confirmed.</p>
+          </details>
+
+          <details class="faq-item" data-category="renters">
+            <summary>How do I leave a review?</summary>
+            <p>After your rental is completed, you'll receive a prompt to rate your experience. Your review helps other renters make informed decisions.</p>
+          </details>
+
+          <details class="faq-item" data-category="renters">
+            <summary>What if I have an issue during my rental?</summary>
+            <p>Contact the merchant immediately. If you need additional support, reach out to our customer service team via email or phone.</p>
+          </details>
+        </div>
+
+        <div class="page-cta">
+          <h3>Still need help?</h3>
+          <p>Can't find the answer you're looking for? Our support team is here to help.</p>
+          <a href="./contact.html" class="btn btn-primary">Contact Support</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/faq.js"></script>
+</body>
+</html>

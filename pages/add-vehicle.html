@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Vehicle - The Middle Man</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header id="app-header"></header>
+
+  <main>
+    <div class="container" style="max-width: 800px; padding: 2rem 0;">
+      <h1>Add New Vehicle</h1>
+      <p style="color: var(--muted); margin-bottom: 2rem;">List your vehicle and start earning</p>
+
+      <form id="addVehicleForm" class="vehicle-form" novalidate>
+        <div class="form-section">
+          <h3>Vehicle Information</h3>
+          
+          <div class="form-group">
+            <label for="vehicleName">Vehicle Name *</label>
+            <input type="text" id="vehicleName" name="name" placeholder="e.g., Toyota Avanza 2020" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="brand">Brand *</label>
+              <select id="brand" name="brand" required>
+                <option value="">Select brand</option>
+                <option>Toyota</option>
+                <option>Honda</option>
+                <option>Mitsubishi</option>
+                <option>Nissan</option>
+                <option>Ford</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="model">Model *</label>
+              <input type="text" id="model" name="model" required />
+            </div>
+            <div class="form-group">
+              <label for="year">Year *</label>
+              <select id="year" name="year" required>
+                <option value="">Select year</option>
+                <option>2024</option>
+                <option>2023</option>
+                <option>2022</option>
+                <option>2021</option>
+                <option>2020</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="seats">Seating *</label>
+              <select id="seats" name="seats" required>
+                <option value="">Select</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="transmission">Transmission *</label>
+              <select id="transmission" name="transmission" required>
+                <option value="">Select</option>
+                <option>Automatic</option>
+                <option>Manual</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fuel">Fuel Type *</label>
+              <select id="fuel" name="fuel" required>
+                <option value="">Select</option>
+                <option>Gasoline</option>
+                <option>Diesel</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="plateNumber">Plate Number *</label>
+            <input type="text" id="plateNumber" name="plateNumber" placeholder="ABC-1234" required />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Pricing</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dailyRate">Daily Rate (₱) *</label>
+              <input type="number" id="dailyRate" name="dailyRate" min="500" required />
+            </div>
+            <div class="form-group">
+              <label for="weeklyRate">Weekly Rate (₱)</label>
+              <input type="number" id="weeklyRate" name="weeklyRate" />
+            </div>
+            <div class="form-group">
+              <label for="monthlyRate">Monthly Rate (₱)</label>
+              <input type="number" id="monthlyRate" name="monthlyRate" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="deposit">Security Deposit (₱) *</label>
+            <input type="number" id="deposit" name="deposit" min="1000" required />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Features</h3>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="features" value="AC" /> Air Conditioning</label>
+            <label><input type="checkbox" name="features" value="Bluetooth" /> Bluetooth</label>
+            <label><input type="checkbox" name="features" value="GPS" /> GPS Navigation</label>
+            <label><input type="checkbox" name="features" value="Backup Camera" /> Backup Camera</label>
+            <label><input type="checkbox" name="features" value="USB" /> USB Ports</label>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Rental Terms</h3>
+          
+          <div class="form-group">
+            <label for="destinations">Allowed Destinations *</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="destinations" value="Manolo Fortich" checked /> Manolo Fortich</label>
+              <label><input type="checkbox" name="destinations" value="Cagayan de Oro" /> Cagayan de Oro</label>
+              <label><input type="checkbox" name="destinations" value="Bukidnon" /> Bukidnon Province</label>
+              <label><input type="checkbox" name="destinations" value="Mindanao" /> Entire Mindanao</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="minRental">Minimum Rental Period (days) *</label>
+            <input type="number" id="minRental" name="minRental" value="1" min="1" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mileageLimit">Mileage Limit (km/day)</label>
+            <input type="number" id="mileageLimit" name="mileageLimit" value="300" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Photos</h3>
+          <div class="upload-group">
+            <label>Vehicle Photos (minimum 3) *</label>
+            <div class="file-upload">
+              <input type="file" id="photos" name="photos" accept="image/*" multiple required />
+              <div class="upload-area">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Drag and drop or click to upload</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <label class="checkbox-label">
+            <input type="checkbox" name="termsAgree" required />
+            <span>I confirm all information is accurate and the vehicle is in good condition</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+          Publish Vehicle
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    document.getElementById('addVehicleForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const vehicleData = Object.fromEntries(formData);
+      console.log('Vehicle added:', vehicleData);
+      TMM.toast('Vehicle published successfully!', 'success');
+      setTimeout(() => location.href = './merchant-dashboard.html', 1500);
+    });
+
+    // File upload preview
+    document.getElementById('photos').addEventListener('change', (e) => {
+      const files = e.target.files;
+      if(files.length < 3){
+        TMM.toast('Please upload at least 3 photos', 'warning');
+      }
+    });
+  </script>
+  <style>
+    .vehicle-form{background: var(--card-bg); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow);}
+    .form-section{margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--gray-200);}
+    .form-section:last-child{border-bottom: none;}
+    .form-section h3{margin: 0 0 1rem; font-size: 1.1rem;}
+    .form-row{display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;}
+    .form-group{display: flex; flex-direction: column; gap: 0.25rem;}
+    .form-group label{font-weight: 600; font-size: 0.95rem;}
+    .form-group input, .form-group select{padding: 0.75rem; border: 1px solid var(--gray-200); border-radius: var(--radius-sm); background: var(--bg); color: var(--text);}
+    .checkbox-group{display: grid; gap: 0.5rem;}
+    .checkbox-group label{display: flex; align-items: center; gap: 0.5rem; cursor: pointer;}
+    .checkbox-label{display: flex; align-items: center; gap: 0.5rem; cursor: pointer;}
+    .upload-area{border: 2px dashed var(--gray-200); border-radius: var(--radius-md); padding: 2rem; text-align: center; cursor: pointer;}
+    .upload-area i{font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;}
+    @media (max-width: 767px){
+      .form-row{grid-template-columns: 1fr;}
+    }
+  </style>
+</body>
+</html>

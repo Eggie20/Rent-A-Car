@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Request - The Middle Man</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header id="app-header"></header>
+
+  <main>
+    <div class="container booking-page">
+      <!-- Progress Indicator -->
+      <div class="progress-indicator">
+        <div class="progress-step active" data-step="1">
+          <div class="step-number">1</div>
+          <div class="step-label">Vehicle Selected</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step active" data-step="2">
+          <div class="step-number">2</div>
+          <div class="step-label">Your Details</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3">
+          <div class="step-number">3</div>
+          <div class="step-label">Review</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="4">
+          <div class="step-number">4</div>
+          <div class="step-label">Approval</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="5">
+          <div class="step-number">5</div>
+          <div class="step-label">Payment</div>
+        </div>
+      </div>
+
+      <div class="booking-content">
+        <!-- Main Form -->
+        <section class="booking-form">
+          <h2>Your Information</h2>
+          <form id="bookingForm" novalidate>
+            <div class="form-section">
+              <h3>Personal Information</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Full Name *</label>
+                  <input type="text" id="fullName" name="fullName" required />
+                  <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" name="email" required />
+                  <span class="error-msg"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+63 XXX XXX XXXX" required />
+                  <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                  <label for="address">Address *</label>
+                  <input type="text" id="address" name="address" required />
+                  <span class="error-msg"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="emergencyContact">Emergency Contact *</label>
+                  <input type="text" id="emergencyContact" name="emergencyContact" required />
+                  <span class="error-msg"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Document Upload</h3>
+              <div class="upload-group">
+                <label>Valid ID (Front) *</label>
+                <div class="file-upload">
+                  <input type="file" id="idFront" name="idFront" accept="image/*,.pdf" required />
+                  <div class="upload-area">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Drag and drop or click to upload</p>
+                    <span class="file-name" id="idFrontName"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="upload-group">
+                <label>Driver's License *</label>
+                <div class="file-upload">
+                  <input type="file" id="license" name="license" accept="image/*,.pdf" required />
+                  <div class="upload-area">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Drag and drop or click to upload</p>
+                    <span class="file-name" id="licenseName"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>Special Requests</h3>
+              <textarea id="specialRequests" name="specialRequests" placeholder="Any special requests or notes?" rows="4"></textarea>
+            </div>
+
+            <div class="form-section">
+              <label class="checkbox-label">
+                <input type="checkbox" id="termsAgree" name="termsAgree" required />
+                <span>I agree to the <a href="./terms.html" target="_blank">Terms & Conditions</a></span>
+              </label>
+              <span class="error-msg" id="termsError"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              Submit Booking Request
+            </button>
+          </form>
+        </section>
+
+        <!-- Sidebar Summary -->
+        <aside class="booking-summary">
+          <h3>Booking Summary</h3>
+          <div class="summary-card">
+            <div id="vehicleImage" class="summary-image"></div>
+            <div class="summary-details">
+              <h4 id="vehicleName"></h4>
+              <p id="merchantName" class="merchant"></p>
+              <div class="summary-row">
+                <span>Pick-up:</span>
+                <strong id="pickupDate"></strong>
+              </div>
+              <div class="summary-row">
+                <span>Return:</span>
+                <strong id="returnDate"></strong>
+              </div>
+              <div class="summary-row">
+                <span>Duration:</span>
+                <strong id="duration"></strong>
+              </div>
+              <div class="divider"></div>
+              <div class="summary-row">
+                <span>Daily Rate:</span>
+                <strong id="dailyRate"></strong>
+              </div>
+              <div class="summary-row">
+                <span>Subtotal:</span>
+                <strong id="subtotal"></strong>
+              </div>
+              <div class="summary-row">
+                <span>Platform Fee:</span>
+                <strong id="platformFee"></strong>
+              </div>
+              <div class="summary-row total">
+                <span>Total Amount:</span>
+                <strong id="totalAmount"></strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <i class="fa-solid fa-info-circle"></i>
+            <p>Payment will be processed after merchant approval. You'll receive a notification once approved.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/booking.js"></script>
+</body>
+</html>
