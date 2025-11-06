@@ -1,0 +1,72 @@
+/* Booking page styles */
+.booking-page{padding:2rem 0}
+
+.progress-indicator{display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;gap:1rem}
+.progress-step{display:flex;flex-direction:column;align-items:center;gap:.5rem;flex:1}
+.step-number{width:40px;height:40px;border-radius:50%;background:var(--gray-200);color:var(--text);display:flex;align-items:center;justify-content:center;font-weight:700}
+.progress-step.active .step-number{background:var(--primary);color:#fff}
+.step-label{font-size:.85rem;text-align:center;color:var(--muted)}
+.progress-step.active .step-label{color:var(--text);font-weight:600}
+.progress-line{flex:1;height:2px;background:var(--gray-200);margin:0 .5rem}
+
+.booking-content{display:grid;grid-template-columns:1fr 380px;gap:2rem}
+
+.booking-form{background:var(--card-bg);border-radius:var(--radius-md);padding:2rem;box-shadow:var(--shadow)}
+.booking-form h2{margin:0 0 1.5rem}
+.booking-form h3{margin:1.5rem 0 1rem;font-size:1.1rem;border-bottom:2px solid var(--gray-200);padding-bottom:.5rem}
+
+.form-section{margin-bottom:1.5rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.25rem}
+.form-group label{font-weight:600;font-size:.95rem}
+.form-group input,.form-group textarea{padding:.75rem;border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-family:inherit}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.1)}
+.form-group input.error,.form-group textarea.error{border-color:var(--danger)}
+.error-msg{color:var(--danger);font-size:.85rem;min-height:1.2rem}
+
+.upload-group{margin-bottom:1.5rem}
+.upload-group label{display:block;font-weight:600;margin-bottom:.5rem}
+.file-upload{position:relative}
+.file-upload input{display:none}
+.upload-area{border:2px dashed var(--gray-200);border-radius:var(--radius-md);padding:2rem;text-align:center;cursor:pointer;transition:all .2s}
+.upload-area:hover{border-color:var(--primary);background:var(--gray-50)}
+.upload-area.dragover{border-color:var(--primary);background:var(--gray-50)}
+.upload-area.uploaded{border-color:var(--success);background:rgba(16,185,129,.05)}
+.upload-area i{font-size:2rem;color:var(--primary);margin-bottom:.5rem}
+.upload-area p{margin:.5rem 0;color:var(--muted)}
+.file-name{display:block;color:var(--success);font-weight:600;margin-top:.5rem}
+
+.checkbox-label{display:flex;align-items:center;gap:.5rem;cursor:pointer;font-size:.95rem}
+.checkbox-label input{cursor:pointer}
+.checkbox-label a{color:var(--primary);text-decoration:none}
+.checkbox-label a:hover{text-decoration:underline}
+
+.booking-summary{background:var(--card-bg);border-radius:var(--radius-md);padding:1.5rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px}
+.booking-summary h3{margin:0 0 1rem}
+
+.summary-card{background:var(--gray-50);border-radius:var(--radius-md);padding:1rem;margin-bottom:1rem}
+.summary-image{margin-bottom:.75rem}
+.summary-image img{width:100%;border-radius:var(--radius-md)}
+.summary-details h4{margin:0 0 .25rem;font-size:1rem}
+.summary-details .merchant{color:var(--muted);font-size:.9rem;margin-bottom:.75rem}
+
+.summary-row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:.5rem}
+.summary-row strong{color:var(--text)}
+.divider{height:1px;background:var(--gray-200);margin:1rem 0}
+.summary-row.total{font-weight:700;font-size:1rem;border-top:1px solid var(--gray-200);padding-top:.75rem}
+
+.info-box{background:var(--info);color:#fff;padding:1rem;border-radius:var(--radius-md);display:flex;gap:.75rem;font-size:.9rem}
+.info-box i{flex-shrink:0}
+
+@media (max-width: 1023px){
+  .booking-content{grid-template-columns:1fr}
+  .booking-summary{position:static;top:auto}
+  .form-row{grid-template-columns:1fr}
+}
+
+@media (max-width: 767px){
+  .booking-form{padding:1rem}
+  .progress-indicator{flex-wrap:wrap}
+  .progress-line{display:none}
+  .progress-step{flex:0 0 calc(50% - .5rem)}
+}

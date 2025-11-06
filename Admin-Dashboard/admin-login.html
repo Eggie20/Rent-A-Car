@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Admin Login - The Middle Man" />
+  <title>Admin Login • The Middle Man</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-2T0m3QzqIh4l5XHf2xQ9cJH9mOJlgS0k4S1qkXf4f3U0H2nYc5E4p0nq9Vb7C0C2n9qf9FQm8X0J9Tt1bGk3VQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/css/admin-login.css" />
+  
+</head>
+<body>
+  
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="login-container">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="login-logo">
+          <i class="fas fa-car"></i>
+        </div>
+        <h1>Admin Panel</h1>
+        <p>Secure access to The Middle Man dashboard</p>
+      </div>
+
+      <div id="loginAlerts"></div>
+
+      <form id="adminLoginForm">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="adminEmail">
+            <i class="fas fa-envelope"></i>
+            Email Address
+          </label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              id="adminEmail"
+              name="email"
+              placeholder="admin@themiddleman.ph"
+              autocomplete="username"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="adminPassword">
+            <i class="fas fa-lock"></i>
+            Password
+          </label>
+          <div class="input-wrapper">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="adminPassword"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+        </div>
+
+        <!-- Remember Me -->
+        <div class="form-row">
+          <div class="checkbox-group">
+            <input type="checkbox" id="rememberMe" name="remember" />
+            <label for="rememberMe">Remember me</label>
+          </div>
+        </div>
+
+        <!-- CAPTCHA -->
+        <div id="captchaContainer" class="captcha-container">
+          <i class="fas fa-robot"></i>
+          <span>Complete CAPTCHA to continue</span>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" class="login-button">
+          <i class="fas fa-sign-in-alt"></i>
+          Sign In
+        </button>
+
+        <!-- Demo Credentials -->
+        <div class="demo-credentials">
+          <strong>Demo Credentials:</strong><br>
+          Email: <strong>admin@themiddleman.ph</strong><br>
+          Password: <strong>admin123456</strong>
+        </div>
+      </form>
+
+      <div class="login-footer">
+        <p>
+          Need help? <a href="#">Contact Support</a> or <a href="#">View Documentation</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/admin-login.js" defer></script>
+  
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renters Login - The Middle Man</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <link rel="stylesheet" href="../assets/css/responsive.css" />
+  <link rel="stylesheet" href="../assets/css/auth.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header id="app-header"></header>
+
+  <main>
+    <div class="merchant-auth-page">
+      <div class="auth-container">
+        <!-- Login Section -->
+        <div class="auth-section login-section">
+          <h2>Renters Login</h2>
+          <p class="subtitle">Access your dashboard</p>
+
+          <form id="loginForm" novalidate>
+            <div class="form-group">
+              <label for="loginEmail">Email Address</label>
+              <input type="email" id="loginEmail" name="email" placeholder="your@email.com" required />
+              <span class="error-msg"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword">Password</label>
+              <div class="password-input">
+                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required />
+                <button type="button" class="toggle-password" id="togglePassword">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+              <span class="error-msg"></span>
+            </div>
+
+            <div class="form-group checkbox">
+              <label>
+                <input type="checkbox" name="remember" />
+                <span>Remember me</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-full">
+              Login to Dashboard
+            </button>
+
+            <div class="form-divider">OR</div>
+
+            <button type="button" class="btn btn-outline btn-lg btn-full">
+              <i class="fa-brands fa-google"></i> Sign in with Google
+            </button>
+          </form>
+
+          <div class="auth-footer">
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="auth-divider"></div>
+
+        <!-- Registration Section -->
+        <div class="auth-section register-section">
+          <h2>New Renters?</h2>
+          <p class="subtitle">Join our platform and grow your business</p>
+
+          <div class="benefits-list">
+            <div class="benefit">
+              <i class="fa-solid fa-users"></i>
+              <span>Reach thousands of renters</span>
+            </div>
+            <div class="benefit">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Grow your revenue</span>
+            </div>
+            <div class="benefit">
+              <i class="fa-solid fa-lock"></i>
+              <span>Secure payments via GCash</span>
+            </div>
+            <div class="benefit">
+              <i class="fa-solid fa-tools"></i>
+              <span>Professional tools & analytics</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-lg btn-full" id="registerBtn" aria-haspopup="dialog" aria-controls="registrationModal">
+            Register as Renters
+          </button>
+
+          <p class="register-note">
+            Registration takes just 5 minutes. We'll verify your documents within 2-3 business days.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal modern" role="dialog" aria-modal="true" aria-labelledby="renterRegTitle" hidden>
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-content modal-xl elevate">
+        <button class="modal-close" id="closeRegisterModal" aria-label="Close registration">&times;</button>
+        <div class="modal-header">
+          <div class="modal-icon">
+            <i class="fa-solid fa-id-card"></i>
+          </div>
+          <div>
+            <h2 id="renterRegTitle">Renter Registration</h2>
+            <p class="modal-subtitle">Create your account to book vehicles with verified merchants.</p>
+          </div>
+        </div>
+        <form id="registrationForm" novalidate>
+          <!-- Progress Steps -->
+          <ol class="form-steps">
+            <li class="active">Profile</li>
+            <li>Verification</li>
+            <li>Review</li>
+          </ol>
+
+          <div class="form-section card">
+            <h3>Personal Information</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Juan Dela Cruz" required />
+                <span class="error-msg"></span>
+              </div>
+              <div class="form-group">
+                <label for="renterEmail">Email *</label>
+                <input type="email" id="renterEmail" name="email" placeholder="you@example.com" required />
+                <span class="error-msg"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="renterPhone">Phone *</label>
+                <input type="tel" id="renterPhone" name="phone" placeholder="09XX XXX XXXX" required />
+                <span class="error-msg"></span>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth *</label>
+                <input type="date" id="dob" name="dob" required />
+                <span class="error-msg"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address *</label>
+              <input type="text" id="address" name="address" placeholder="Street, City, Province" required />
+              <span class="error-msg"></span>
+            </div>
+          </div>
+
+          <div class="form-section card">
+            <h3>Verification</h3>
+            <div class="upload-columns">
+              <div class="upload-group">
+                <label>Valid ID (front) *</label>
+                <div class="file-upload">
+                  <input type="file" id="idFront" name="idFront" accept=".pdf,.jpg,.png" required />
+                  <div class="upload-area">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Click to upload or drag and drop</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="upload-group">
+                <label>Selfie with ID *</label>
+                <div class="file-upload">
+                  <input type="file" id="idSelfie" name="idSelfie" accept=".pdf,.jpg,.png" required />
+                  <div class="upload-area">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>Click to upload or drag and drop</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section card">
+            <label class="checkbox-label">
+              <input type="checkbox" name="termsAgree" required />
+              <span>I agree to the <a href="./terms.html" target="_blank">Terms & Conditions</a></span>
+            </label>
+            <span class="error-msg" id="termsError"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" id="cancelRegistration" data-close>Cancel</button>
+            <button type="submit" class="btn btn-primary btn-lg">Create Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer id="app-footer"></footer>
+
+  <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/merchant-auth.js"></script>
+</body>
+</html>

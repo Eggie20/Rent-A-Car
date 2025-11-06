@@ -1,0 +1,472 @@
+/* ============================================
+   PROFESSIONAL STYLING FOR ADMIN DASHBOARD
+   Additional Enhancements for Payments, Content, Reports & Settings
+   ============================================ */
+
+/* ============================================
+   PAYMENT SUMMARY - PROFESSIONAL STYLING
+   ============================================ */
+
+.payment-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 255, 255, 0.5) 100%);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--info));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.summary-card:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+
+.summary-card:hover::before {
+  transform: scaleX(1);
+}
+
+.summary-card h4 {
+  margin: 0 0 1rem 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.summary-value {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--info));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   CONTENT TABS - PROFESSIONAL STYLING
+   ============================================ */
+
+.content-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 1rem 1.25rem;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  position: relative;
+  margin-bottom: -2px;
+  text-transform: capitalize;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  background: rgba(30, 64, 175, 0.05);
+}
+
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 700;
+}
+
+/* ============================================
+   CONTENT EDITOR - PROFESSIONAL STYLING
+   ============================================ */
+
+.content-editor {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.editor {
+  width: 100%;
+  min-height: 450px;
+  padding: 1.25rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: all 200ms ease;
+}
+
+.editor:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+}
+
+.editor-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   REPORTS FILTERS - PROFESSIONAL STYLING
+   ============================================ */
+
+.reports-filters {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.filter-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-group label {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.filter-group span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.filter-group .input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: all 200ms ease;
+}
+
+.filter-group .input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.08);
+}
+
+/* ============================================
+   REPORTS GRID - PROFESSIONAL STYLING
+   ============================================ */
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.report-card {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 255, 255, 0.4) 100%);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.report-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.report-card:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  border-color: var(--primary);
+}
+
+.report-card:hover::after {
+  opacity: 1;
+}
+
+.report-card h4 {
+  margin: 0 0 1rem 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.report-value {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--info));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   SETTINGS FORM - PROFESSIONAL STYLING
+   ============================================ */
+
+.settings-form {
+  display: grid;
+  gap: 2rem;
+}
+
+.settings-section {
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255, 255, 255, 0.3) 100%);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 200ms ease;
+}
+
+.settings-section:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.settings-section h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.settings-section .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.settings-section .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.settings-section label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.settings-section .input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: all 200ms ease;
+}
+
+.settings-section .input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+}
+
+.settings-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .payment-summary {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .reports-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .summary-card {
+    padding: 1.5rem;
+  }
+
+  .summary-value {
+    font-size: 1.8rem;
+  }
+
+  .report-card {
+    padding: 1.5rem;
+  }
+
+  .report-value {
+    font-size: 1.8rem;
+  }
+
+  .settings-section {
+    padding: 1.5rem;
+  }
+
+  .content-editor {
+    padding: 1.5rem;
+  }
+
+  .editor {
+    min-height: 350px;
+    padding: 1rem;
+  }
+
+  .reports-filters {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+  }
+
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group label {
+    margin-bottom: 0.5rem;
+  }
+
+  .filter-group .input {
+    width: 100%;
+  }
+
+  .editor-actions {
+    flex-direction: column;
+  }
+
+  .editor-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .settings-actions {
+    flex-direction: column;
+  }
+
+  .settings-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-summary {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .summary-card {
+    padding: 1.25rem;
+  }
+
+  .summary-value {
+    font-size: 1.5rem;
+  }
+
+  .content-tabs {
+    gap: 0.25rem;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .report-card {
+    padding: 1.25rem;
+  }
+
+  .report-value {
+    font-size: 1.5rem;
+  }
+
+  .settings-section {
+    padding: 1.25rem;
+  }
+
+  .settings-section h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .editor {
+    min-height: 300px;
+  }
+}

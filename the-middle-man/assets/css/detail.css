@@ -1,0 +1,92 @@
+/* Vehicle detail page styles */
+.vehicle-detail-page{display:grid;grid-template-columns:1fr 380px;gap:2rem;padding:2rem 0}
+
+.detail-main{display:grid;gap:2rem}
+
+.gallery-section{display:grid;gap:1rem}
+.main-image{position:relative;aspect-ratio:16/9;background:#ccc;border-radius:var(--radius-md);overflow:hidden}
+.main-image img{width:100%;height:100%;object-fit:cover}
+.gallery-controls{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;padding:1rem;opacity:0;transition:opacity .3s}
+.main-image:hover .gallery-controls{opacity:1}
+.gallery-btn{background:rgba(255,255,255,.9);border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.gallery-btn:hover{background:#fff}
+.image-counter{position:absolute;bottom:1rem;right:1rem;background:rgba(0,0,0,.7);color:#fff;padding:.5rem .75rem;border-radius:var(--radius-full);font-size:.9rem}
+
+.thumbnail-strip{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.5rem}
+.thumbnail{width:80px;height:80px;border-radius:var(--radius-md);cursor:pointer;border:2px solid transparent;object-fit:cover;transition:border-color .2s}
+.thumbnail:hover,.thumbnail.active{border-color:var(--primary)}
+
+.vehicle-info{display:grid;gap:1rem}
+.vehicle-info h1{margin:0;font-size:2rem}
+.merchant-info{display:flex;align-items:center;gap:.5rem;color:var(--muted)}
+.rating-section{display:flex;align-items:center;gap:1rem}
+.stars{font-size:1.2rem}
+
+.price-section{background:var(--gray-50);padding:1rem;border-radius:var(--radius-md)}
+.price-display{font-size:1.5rem;font-weight:700;color:var(--primary);margin-bottom:.5rem}
+.price-breakdown{display:grid;gap:.5rem;font-size:.9rem}
+
+.tabs{display:flex;gap:.5rem;border-bottom:2px solid var(--gray-200);margin:1rem 0}
+.tab-btn{background:transparent;border:none;padding:.75rem 1rem;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;font-weight:600}
+.tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}
+
+.tab-content{display:grid;gap:1rem}
+.tab-pane{display:none}
+.tab-pane.active{display:block}
+
+.specs-table{display:grid;gap:.75rem}
+.spec-row{display:grid;grid-template-columns:150px 1fr;gap:1rem;padding:.75rem;background:var(--gray-50);border-radius:var(--radius-sm)}
+.spec-row .label{font-weight:600}
+
+.features-list{display:grid;gap:.5rem}
+.feature-item{display:flex;align-items:center;gap:.75rem;padding:.5rem}
+
+.terms-content h4{margin:1rem 0 .5rem}
+.terms-content ul{margin:0;padding-left:1.5rem}
+.terms-content li{margin-bottom:.5rem}
+
+.merchant-details{display:grid;gap:.75rem}
+.merchant-details h4{margin:0}
+.merchant-details p{margin:.5rem 0}
+
+.reviews-section{display:grid;gap:1.5rem}
+.rating-summary{display:grid;grid-template-columns:100px 1fr;gap:2rem;align-items:center}
+.rating-large{font-size:3rem;font-weight:800;color:var(--primary);text-align:center}
+.rating-breakdown{display:grid;gap:.75rem}
+.breakdown-row{display:grid;grid-template-columns:30px 1fr 40px;gap:.75rem;align-items:center;font-size:.9rem}
+.progress-bar{height:8px;background:var(--gray-200);border-radius:4px;overflow:hidden}
+.progress{height:100%;background:var(--secondary)}
+
+.reviews-list{display:grid;gap:1rem}
+.review-card{background:var(--gray-50);padding:1rem;border-radius:var(--radius-md)}
+.review-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.review-date{color:var(--muted);font-size:.85rem}
+.review-rating{color:var(--secondary);font-weight:600;margin-bottom:.5rem}
+.review-card p{margin:.5rem 0}
+.review-actions{display:flex;gap:.5rem}
+
+.booking-widget-sticky{position:sticky;top:80px;height:fit-content;background:var(--card-bg);border-radius:var(--radius-md);box-shadow:var(--shadow);overflow:hidden}
+.widget-header{background:var(--primary);color:#fff;padding:1rem}
+.widget-header h3{margin:0}
+.widget-content{padding:1rem}
+
+.widget-field{display:grid;gap:.25rem;margin-bottom:1rem}
+.widget-field label{font-size:.9rem;font-weight:600}
+.widget-field input{padding:.6rem;border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--bg);color:var(--text)}
+
+.widget-summary{background:var(--gray-50);padding:.75rem;border-radius:var(--radius-sm);margin-bottom:1rem}
+.summary-row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:.5rem}
+.summary-row.total{border-top:2px solid var(--gray-200);padding-top:.5rem;font-weight:700;font-size:1rem}
+
+@media (max-width: 1023px){
+  .vehicle-detail-page{grid-template-columns:1fr}
+  .booking-widget-sticky{position:static;top:auto}
+}
+
+@media (max-width: 767px){
+  .vehicle-info h1{font-size:1.5rem}
+  .tabs{flex-wrap:wrap}
+  .tab-btn{padding:.5rem .75rem;font-size:.9rem}
+  .rating-summary{grid-template-columns:1fr}
+  .rating-large{text-align:left}
+}

@@ -1,0 +1,73 @@
+/* Verify Email Page Styles */
+
+/* Container */
+.auth-container {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 3rem auto;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-container h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.auth-container p {
+  margin: 0.5rem 0;
+  color: var(--muted);
+}
+
+/* Loader */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 1.5rem auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success state */
+.hidden {
+  display: none !important;
+}
+
+#verifySuccess {
+  display: grid;
+  gap: 1rem;
+}
+
+#verifySuccess h2 {
+  margin: 0;
+  color: var(--success);
+}
+
+#verifySuccess p {
+  margin: 0;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .auth-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .auth-container h1 {
+    font-size: 1.5rem;
+  }
+}

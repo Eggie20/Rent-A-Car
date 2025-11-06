@@ -1,0 +1,151 @@
+/* Merchant auth page styles */
+.merchant-auth-page{min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--primary),var(--secondary));padding:2rem}
+
+.auth-container{display:grid;grid-template-columns:1fr 1px 1fr;gap:2rem;max-width:1000px;margin:0 auto;background:var(--card-bg);border-radius:var(--radius-lg);box-shadow:0 20px 60px rgba(0,0,0,.3);overflow:hidden}
+
+.auth-section{padding:2rem}
+.auth-section h2{margin:0 0 .5rem;font-size:1.5rem}
+.subtitle{color:var(--muted);margin:0 0 1.5rem}
+
+.form-group{display:flex;flex-direction:column;gap:.25rem;margin-bottom:1rem}
+.form-group label{font-weight:600;font-size:.95rem}
+.form-group input,.form-group select,.form-group textarea{padding:.75rem;border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-family:inherit}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,.1)}
+.error-msg{color:var(--danger);font-size:.85rem;min-height:1.2rem}
+
+.password-input{position:relative;display:flex;align-items:center}
+.password-input input{flex:1}
+.toggle-password{position:absolute;right:10px;background:transparent;border:none;cursor:pointer;color:var(--muted)}
+
+.form-group.checkbox label{display:flex;align-items:center;gap:.5rem;cursor:pointer;font-weight:400}
+.form-group.checkbox input{cursor:pointer}
+
+.form-divider{text-align:center;color:var(--muted);margin:1rem 0;position:relative}
+.form-divider::before{content:'';position:absolute;left:0;top:50%;width:100%;height:1px;background:var(--gray-200)}
+.form-divider{position:relative;background:var(--card-bg);padding:0 .5rem}
+
+.auth-footer{text-align:center;margin-top:1rem}
+.forgot-password{color:var(--primary);text-decoration:none;font-size:.9rem}
+.forgot-password:hover{text-decoration:underline}
+
+.auth-divider{background:var(--gray-200)}
+
+.register-section{display:flex;flex-direction:column;justify-content:center}
+.benefits-list{display:grid;gap:.75rem;margin:1.5rem 0}
+.benefit{display:flex;align-items:center;gap:.75rem;font-size:.95rem}
+.benefit i{color:var(--success);font-size:1.2rem}
+
+.register-note{color:var(--muted);font-size:.85rem;text-align:center;margin-top:1rem}
+
+/* Registration Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.modal[hidden]{display:none !important}
+.modal.open{display:flex;opacity:1;pointer-events:auto}
+.modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:-1}
+.modal-content{background:var(--card-bg);border-radius:var(--radius-lg);padding:2rem;max-width:600px;width:90%;max-height:90vh;overflow-y:auto;position:relative;transform:translateY(10px);transition:transform .25s ease;z-index:1001}
+.modal.open .modal-content{transform:translateY(0)}
+.modal-xl{max-width:900px}
+.modal-lg{max-width:700px}
+.modal-close{position:absolute;top:1rem;right:1rem;background:transparent;border:none;font-size:1.5rem;cursor:pointer;color:var(--muted);transition:color .2s;z-index:10}
+.modal-close:hover{color:var(--primary)}
+.modal-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--gray-200)}
+.modal-icon{width:48px;height:48px;min-width:48px;display:grid;place-items:center;border-radius:8px;background:rgba(30,64,175,0.1);color:var(--primary);font-size:1.5rem}
+.modal-subtitle{color:var(--muted);font-size:.95rem;margin:0}
+.form-steps{list-style:none;padding:0;margin:0 0 2rem;display:flex;gap:1rem;justify-content:space-between;counter-reset:step}
+.form-steps li{flex:1;text-align:center;font-size:.9rem;color:var(--muted);position:relative;padding-top:2rem}
+.form-steps li::before{content:counter(step);counter-increment:step;position:absolute;top:0;left:50%;transform:translateX(-50%);width:32px;height:32px;background:var(--gray-200);border-radius:50%;display:grid;place-items:center;font-weight:600;color:var(--text)}
+.form-steps li.active::before{background:var(--primary);color:#fff}
+.form-steps li.active{color:var(--primary);font-weight:600}
+.card{background:var(--gray-50);border-radius:var(--radius-md);padding:1.5rem;border:1px solid var(--gray-200)}
+.upload-columns{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.form-actions{display:flex;gap:1rem;margin-top:2rem;justify-content:flex-end}
+.form-actions .btn{flex:1;max-width:200px}
+.elevate{box-shadow:0 20px 50px rgba(0,0,0,.2)}
+-------
+
+.form-section{margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--gray-200)}
+.form-section:last-of-type{border-bottom:none;margin-bottom:1.5rem}
+.form-section h3{margin:0 0 1.5rem;font-size:1.2rem;font-weight:700;color:var(--text);border-bottom:2px solid var(--primary);padding-bottom:.75rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+
+.upload-group{margin-bottom:1.5rem}
+.upload-group label{display:block;font-weight:600;margin-bottom:.75rem;color:var(--text)}
+.file-upload{position:relative}
+.file-upload input{display:none}
+.upload-area{border:2px dashed var(--gray-200);border-radius:var(--radius-md);padding:2rem 1.5rem;text-align:center;cursor:pointer;transition:all .3s ease;background:var(--gray-50)}
+.upload-area:hover{border-color:var(--primary);background:rgba(30,64,175,0.05);transform:translateY(-2px)}
+.upload-area i{font-size:2rem;color:var(--primary);margin-bottom:.75rem;display:block}
+.upload-area p{margin:.5rem 0;color:var(--muted);font-size:.9rem}
+
+.checkbox-label{display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.95rem;padding:.5rem;border-radius:var(--radius-sm);transition:background .2s}
+.checkbox-label:hover{background:var(--gray-50)}
+.checkbox-label input{cursor:pointer;width:18px;height:18px}
+.checkbox-label a{color:var(--primary);text-decoration:none;font-weight:600}
+.checkbox-label a:hover{text-decoration:underline}
+-------
+
+/* Full width button utility */
+.btn-full{width:100%;justify-content:center;text-align:center}
+
+/* Auth page button styling */
+.auth-section .btn{display:flex;align-items:center;justify-content:center;width:100%;height:auto;min-height:48px;padding:1rem 1.25rem;font-weight:600;font-size:1.05rem;transition:all .3s ease;border-radius:var(--radius-md)}
+
+.auth-section .btn-primary{background:var(--primary);color:#fff}
+.auth-section .btn-primary:hover{background:#1a3a8a;transform:none;filter:none}
+.auth-section .btn-primary:active{transform:translateY(2px)}
+
+.auth-section .btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+.auth-section .btn-outline:hover{background:rgba(30,64,175,0.05);border-color:var(--primary);transform:none;filter:none}
+.auth-section .btn-outline:active{transform:translateY(2px)}
+
+.auth-section .btn-secondary{background:var(--secondary);color:#111827}
+.auth-section .btn-secondary:hover{background:#d97706;transform:none;filter:none}
+.auth-section .btn-secondary:active{transform:translateY(2px)}
+
+/* Icon alignment in buttons */
+.auth-section .btn i{margin-right:.5rem;font-size:1.1rem}
+.auth-section .btn i:last-child{margin-right:0}
+
+/* Ensure text doesn't shift on hover */
+.auth-section .btn span{display:inline}
+
+/* Modal form styling */
+.modal-content h2{margin:0 0 1.5rem;font-size:1.5rem;font-weight:700;color:var(--text);border-bottom:2px solid var(--primary);padding-bottom:1rem}
+
+.modal-content .form-group{margin-bottom:1.25rem}
+.modal-content .form-group label{font-weight:600;font-size:.95rem;color:var(--text);margin-bottom:.5rem}
+.modal-content .form-group input,
+.modal-content .form-group select,
+.modal-content .form-group textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--gray-200);border-radius:var(--radius-md);background:var(--bg);color:var(--text);font-family:inherit;font-size:.95rem;transition:all .2s}
+.modal-content .form-group input:focus,
+.modal-content .form-group select:focus,
+.modal-content .form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(30,64,175,0.1);background:var(--bg)}
+
+/* Modal button styling */
+.modal-content .btn{display:flex;align-items:center;justify-content:center;width:100%;height:auto;min-height:48px;padding:1rem 1.25rem;font-weight:600;font-size:1.05rem;transition:all .3s ease;border-radius:var(--radius-md);margin-top:1rem}
+
+.modal-content .btn-primary{background:var(--primary);color:#fff}
+.modal-content .btn-primary:hover{background:#1a3a8a;transform:none;filter:none}
+.modal-content .btn-primary:active{transform:translateY(2px)}
+
+/* Modal scrollbar styling */
+.modal-content::-webkit-scrollbar{width:8px}
+.modal-content::-webkit-scrollbar-track{background:var(--gray-50);border-radius:4px}
+.modal-content::-webkit-scrollbar-thumb{background:var(--gray-200);border-radius:4px}
+.modal-content::-webkit-scrollbar-thumb:hover{background:var(--primary)}
+-------
+-------
+
+@media (max-width: 1023px){
+  .auth-container{grid-template-columns:1fr;gap:0}
+  .auth-divider{display:none}
+  .register-section{border-top:1px solid var(--gray-200);padding-top:2rem}
+}
+
+@media (max-width: 767px){
+  .merchant-auth-page{padding:1rem}
+  .auth-section{padding:1.5rem}
+  .auth-section h2{font-size:1.25rem}
+  .form-row{grid-template-columns:1fr}
+  .modal-content{padding:1.5rem}
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verify Email • The Middle Man</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/verify-email.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header id="siteHeader"></header>
+  <main id="main" class="container">
+    <section class="auth-container" aria-labelledby="verifyTitle">
+      <h1 id="verifyTitle">Verifying your email...</h1>
+      <div class="loader" aria-hidden="true"></div>
+      <p id="verifyMessage" aria-live="polite" class="text-muted">Please wait while we confirm your email address.</p>
+      <div id="verifySuccess" class="hidden">
+        <h2>Success!</h2>
+        <p>Your email has been verified. Redirecting to dashboard in <span id="redirectCountdown">5</span> seconds...</p>
+        <a class="btn btn-primary" href="./index.html">Go to Dashboard</a>
+      </div>
+    </section>
+  </main>
+  <footer id="siteFooter"></footer>
+
+  <script src="../assets/js/utils.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const token = sessionStorage.getItem('tmm.email.verify.token');
+      const successEl = document.getElementById('verifySuccess');
+      const msg = document.getElementById('verifyMessage');
+      if (token) {
+        setTimeout(() => {
+          msg.textContent = 'Email verified successfully!';
+          successEl.classList.remove('hidden');
+          let remaining = 5;
+          const countdownEl = document.getElementById('redirectCountdown');
+          const timer = setInterval(() => {
+            remaining -= 1;
+            countdownEl.textContent = String(remaining);
+            if (remaining <= 0) {
+              clearInterval(timer);
+              window.location.href = '../pages/index.html';
+            }
+          }, 1000);
+        }, 1000);
+      } else {
+        msg.textContent = 'Invalid or expired verification token.';
+      }
+    });
+  </script>
+</body>
+</html>
